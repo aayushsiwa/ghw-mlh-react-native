@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { SafeAreaView, Text, StyleSheet, Button, Alert } from "react-native";
+import { theme } from "./theme";
 
-export default function App() {
+const App: React.FC = () => {
+  // Handle button press
+  const handlePress = (): void => {
+    Alert.alert("Button pressed!");
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Welcome to React&apos;s Native!</Text>
+      <Button title="Press Me" onPress={handlePress} />
+    </SafeAreaView>
   );
-}
+};
 
+// Define styles
 const styles = StyleSheet.create({
   container: {
+    alignItems: "center",
+    backgroundColor: theme.colors.white,
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+  },
+  title: {
+    color: "#bb2cd9",
+    fontSize: 24,
+    marginBottom: 20,
   },
 });
+
+export default App;
