@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Pressable, Alert, Linking } from "react-native";
+import { Image } from "expo-image";
 import { theme } from "./theme"; // Assuming you have a theme defined elsewhere
 
 const App: React.FC = () => {
@@ -25,6 +26,12 @@ const App: React.FC = () => {
 
   return (
     <View style={styles.container}>
+      <Image
+        style={styles.image}
+        source={require("./assets/mlh-logo-color.png")}
+        transition={1000}
+        contentFit="contain"
+      />
       <Text style={styles.headlineText}>Global Hack Week</Text>
       <Text style={styles.bodyText}>
         Each month we host a Global Hack Week where you can learn new skills, build your portfolio,
@@ -67,6 +74,10 @@ const styles = StyleSheet.create({
   headlineText: {
     ...theme.textVariants.title,
     fontWeight: "bold",
+  },
+  image: {
+    width: 200,
+    height: 200,
   },
   signupButton: {
     backgroundColor: theme.colors.purple,
